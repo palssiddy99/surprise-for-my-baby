@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 4 Months, Alifiya! ❤️</title>
+  <title>Happy 4 Months, Baby! ❤️</title>
   
-  <!-- Google Fonts & Canvas Confetti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
@@ -35,7 +34,7 @@
       position: relative;
     }
 
-    /* Floating Hearts Background */
+    /* Floating Hearts */
     .heart-bg {
       position: fixed;
       top: 0;
@@ -65,7 +64,7 @@
       }
     }
 
-    /* Stage 1: Envelope Screen */
+    /* Envelope Opener */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -107,11 +106,11 @@
       50% { transform: translateY(-12px); }
     }
 
-    /* Main Content Container */
+    /* Main Content */
     #main-content {
       position: relative;
       z-index: 10;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 40px 20px 80px;
       opacity: 0;
@@ -130,12 +129,11 @@
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       color: var(--primary);
       font-weight: 600;
     }
 
-    /* Live Digital Timer Display */
     .timer-container {
       margin-top: 18px;
       display: flex;
@@ -168,7 +166,6 @@
       margin-top: 2px;
     }
 
-    /* Section Cards */
     .section-card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
@@ -186,41 +183,49 @@
       text-align: center;
     }
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 24px;
-      border-left: 2px dashed var(--secondary);
-      margin-left: 10px;
+    /* Polaroid Photo Gallery */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 22px;
+      justify-items: center;
     }
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 26px;
+    .polaroid {
+      background: white;
+      padding: 12px 12px 18px 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      width: 100%;
+      max-width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .timeline-item::before {
-      content: '🌸';
-      position: absolute;
-      left: -35px;
-      top: 0px;
-      font-size: 1.1rem;
+    .polaroid:hover {
+      transform: scale(1.05) rotate(0deg) !important;
+      box-shadow: 0 14px 28px rgba(255, 94, 126, 0.2);
     }
 
-    .timeline-date {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .polaroid img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #f7f7f7;
     }
 
-    .timeline-desc {
-      font-size: 0.98rem;
+    .polaroid-caption {
+      margin-top: 10px;
+      font-size: 0.92rem;
       color: #555;
-      margin-top: 4px;
-      line-height: 1.5;
+      font-weight: 500;
     }
+
+    /* Tilt polaroids slightly for real feel */
+    .polaroid:nth-child(1) { transform: rotate(-2deg); }
+    .polaroid:nth-child(2) { transform: rotate(2deg); }
+    .polaroid:nth-child(3) { transform: rotate(-1.5deg); }
 
     /* Reasons Cards */
     .reasons-grid {
@@ -253,20 +258,32 @@
       line-height: 1.4;
     }
 
-    /* Letter Section */
-    .letter-paper {
-      background: #fffdf9;
-      border-radius: 16px;
-      padding: 30px;
-      border: 1px solid #f2e9dc;
-      box-shadow: inset 0 0 35px rgba(0,0,0,0.02);
-      font-family: 'Caveat', cursive;
-      font-size: 1.55rem;
-      line-height: 1.6;
-      color: #4a3b32;
+    /* Secret Letter Teaser Card */
+    .letter-teaser {
+      text-align: center;
+      padding: 30px 20px;
     }
 
-    /* Runaway Button Game */
+    .letter-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(135deg, #ff5e7e, #ff8da1);
+      color: white;
+      text-decoration: none;
+      padding: 14px 34px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 99px;
+      box-shadow: 0 6px 20px rgba(255, 94, 126, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .letter-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(255, 94, 126, 0.4);
+    }
+
+    /* Runaway Button Box */
     .playful-box {
       text-align: center;
       padding: 30px 20px;
@@ -323,24 +340,22 @@
 </head>
 <body>
 
-  <!-- Floating Hearts Background -->
   <div class="heart-bg" id="heart-bg"></div>
 
-  <!-- Stage 1: Envelope Opening -->
+  <!-- Opening Envelope -->
   <div id="envelope-screen">
     <div class="envelope-box" onclick="openGift()">
       <div class="envelope-icon">💌</div>
-      <p class="envelope-hint">Tap to open, Alifiya ✨</p>
+      <p class="envelope-hint">Tap to open, my baby ✨</p>
     </div>
   </div>
 
-  <!-- Stage 2: Main Content -->
   <main id="main-content">
     <header>
       <h1>Happy 4 Months, Alifiya! 💕</h1>
-      <p style="color: #666; font-size: 0.95rem; margin-top: 6px;">Every single second since day one:</p>
+      <p style="color: #666; font-size: 0.95rem; margin-top: 6px;">Every single second since the day we met:</p>
       
-      <!-- Live Real-Time Stopwatch -->
+      <!-- Live Counter -->
       <div class="timer-container">
         <div class="timer-box">
           <div class="timer-number" id="t-days">137</div>
@@ -361,62 +376,54 @@
       </div>
     </header>
 
-    <!-- Timeline Journey -->
+    <!-- Photo Gallery (Replace image src with your photo paths) -->
     <section class="section-card">
-      <h2 class="section-title">✨ Our First 4 Months Together</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">Month 1 • Day 1 & Sparks</div>
-          <div class="timeline-desc">Where it all started. The butterflies, staying up talking for hours, and quickly realizing how special you are to me.</div>
+      <h2 class="section-title">📸 Our Favorite Moments</h2>
+      <div class="photo-grid">
+        <div class="polaroid">
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500&auto=format&fit=crop&q=60" alt="Us" />
+          <div class="polaroid-caption">Where it all started ✨</div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Month 2 • Our Little World</div>
-          <div class="timeline-desc">Sharing jokes, all the sweet conversations, and finding myself looking forward to hearing your voice every day.</div>
+        <div class="polaroid">
+          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=500&auto=format&fit=crop&q=60" alt="Us" />
+          <div class="polaroid-caption">My favorite smile in the world 🌸</div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Month 3 • Safe Space</div>
-          <div class="timeline-desc">Learning everything about each other, sharing comfort and smiles, and you becoming my absolute favorite part of every single day.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Month 4 • Today & Beyond</div>
-          <div class="timeline-desc">Officially 4 months (and 138 days of knowing you). Honestly, every day with you just gets sweeter and better.</div>
+        <div class="polaroid">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&auto=format&fit=crop&q=60" alt="Us" />
+          <div class="polaroid-caption">The warmest hugs 🫂</div>
         </div>
       </div>
     </section>
 
     <!-- Reasons Grid -->
     <section class="section-card">
-      <h2 class="section-title">💌 Things I Adore About You, Alifiya</h2>
+      <h2 class="section-title">💌 Things I Adore About You, Baby</h2>
       <div class="reasons-grid">
         <div class="reason-box">
-          <p>Your smile that instantly melts away any stress I have ✨</p>
+          <p>Your beautiful smile that lights up my whole day ✨</p>
         </div>
         <div class="reason-box">
-          <p>The warmest hugs that make everything in the world feel completely okay 🫂</p>
+          <p>The safest, warmest hugs in the world 🫂</p>
         </div>
         <div class="reason-box">
-          <p>How cute you get when you’re talking about things you love 🥺</p>
+          <p>How cute you get when you talk about small things 🥺</p>
         </div>
         <div class="reason-box">
-          <p>The calm and happiness you bring just by existing in my life 💖</p>
+          <p>Just being you—my favorite person, my baby 💖</p>
         </div>
       </div>
     </section>
 
-    <!-- Digital Love Note -->
-    <section class="section-card">
-      <h2 class="section-title">📝 A Letter For You</h2>
-      <div class="letter-paper">
-        Dearest Alifiya,<br><br>
-        It’s wild how 138 days feel like both a lifetime and an instant. Every single moment since the day we met has felt brighter just because you’re in it.<br><br>
-        Thank you for being my peace, my biggest smile, and the one person who can always turn a regular day into something special. Getting to love you over these past 4 months has been the easiest, best thing in the world.<br><br>
-        Happy 4 months, my favorite person. Here's to forever more. ❤️
-      </div>
+    <!-- Dedicated Letter Page Link -->
+    <section class="section-card letter-teaser">
+      <h2 style="font-size: 1.45rem; color: var(--primary);">📝 A Secret Note For You</h2>
+      <p style="color: #666; margin-top: 8px; font-size: 0.95rem;">I wrote down something straight from my heart just for you.</p>
+      <a href="letter.html" class="letter-btn">Read Your Letter, Baby 💌</a>
     </section>
 
-    <!-- Playful Interactive Question -->
+    <!-- Playful Question -->
     <section class="section-card playful-box" id="question-box">
-      <h2 style="font-size: 1.3rem; color: var(--text);">Will you be my date for Month 5 and beyond, Alifiya? 🥺</h2>
+      <h2 style="font-size: 1.3rem; color: var(--text);">Will you stay by my side for Month 5 and beyond, baby? 🥺</h2>
       <div class="btn-container">
         <button class="btn-yes" onclick="celebrate()">YES! Always ❤️</button>
         <button class="btn-no" id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()">No</button>
@@ -429,17 +436,10 @@
   </main>
 
   <script>
-    // 1. Open Envelope
     function openGift() {
       const screen = document.getElementById('envelope-screen');
       const content = document.getElementById('main-content');
-      
-      confetti({
-        particleCount: 90,
-        spread: 75,
-        origin: { y: 0.6 }
-      });
-
+      confetti({ particleCount: 90, spread: 75, origin: { y: 0.6 } });
       screen.style.opacity = '0';
       screen.style.transform = 'scale(0.9)';
       setTimeout(() => {
@@ -448,35 +448,24 @@
       }, 700);
     }
 
-    // 2. Playful Runaway "No" Button
     const noBtn = document.getElementById('no-btn');
     function dodgeButton() {
       const container = document.getElementById('question-box');
       const boxRect = container.getBoundingClientRect();
-      
       const maxX = boxRect.width - 100;
       const maxY = boxRect.height - 60;
-      
       const randomX = Math.max(10, Math.floor(Math.random() * maxX) - (boxRect.width / 2));
       const randomY = Math.max(-30, Math.floor(Math.random() * maxY) - 50);
-
       noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
 
-    // 3. Celebrate "Yes" Click
     function celebrate() {
-      confetti({
-        particleCount: 160,
-        spread: 110,
-        origin: { y: 0.6 }
-      });
-      alert("I knew it! Best answer ever, Alifiya. Love you! 🥰");
+      confetti({ particleCount: 160, spread: 110, origin: { y: 0.6 } });
+      alert("I knew it! Best answer ever. Love you so much, baby! 🥰");
     }
 
-    // 4. Background Floating Hearts Generator
     const heartContainer = document.getElementById('heart-bg');
     const heartSymbols = ['❤️', '💖', '✨', '🌸', '💕'];
-
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('floating-heart');
@@ -484,25 +473,18 @@
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
       heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
-      
       heartContainer.appendChild(heart);
-      
-      setTimeout(() => {
-        heart.remove();
-      }, 8000);
+      setTimeout(() => heart.remove(), 8000);
     }
     setInterval(createHeart, 450);
 
-    // 5. EXACT LIVE TIMER (Ticking live seconds, hours, days)
-    // Locked to hit 138 days tomorrow:
     const targetStartDate = new Date();
-    targetStartDate.setDate(targetStartDate.getDate() - 137); 
+    targetStartDate.setDate(targetStartDate.getDate() - 137);
     targetStartDate.setHours(0, 0, 0, 0);
 
     function updateTimer() {
       const now = new Date();
       const diff = now - targetStartDate;
-
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -513,7 +495,6 @@
       document.getElementById('t-mins').innerText = minutes < 10 ? '0' + minutes : minutes;
       document.getElementById('t-secs').innerText = seconds < 10 ? '0' + seconds : seconds;
     }
-
     setInterval(updateTimer, 1000);
     updateTimer();
   </script>
