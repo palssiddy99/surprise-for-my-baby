@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 4 Months! ❤️</title>
+  <title>Happy 4 Months, Alifiya! ❤️</title>
   
   <!-- Google Fonts & Canvas Confetti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
       --primary: #ff5e7e;
       --secondary: #ff99ac;
       --bg: #fff5f6;
-      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-bg: rgba(255, 255, 255, 0.94);
       --text: #3d3135;
     }
 
@@ -98,7 +98,7 @@
       margin-top: 15px;
       font-weight: 600;
       color: var(--primary);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.5px;
     }
 
@@ -126,7 +126,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
 
     header h1 {
@@ -135,16 +135,37 @@
       font-weight: 600;
     }
 
-    .counter-pill {
-      display: inline-block;
-      margin-top: 12px;
+    /* Live Digital Timer Display */
+    .timer-container {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timer-box {
       background: white;
-      padding: 8px 20px;
-      border-radius: 99px;
-      box-shadow: 0 4px 15px rgba(255, 94, 126, 0.15);
-      font-size: 1rem;
+      border-radius: 14px;
+      padding: 10px 14px;
+      min-width: 70px;
+      box-shadow: 0 4px 15px rgba(255, 94, 126, 0.12);
+      border: 1px solid #ffd4dc;
+    }
+
+    .timer-number {
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .timer-label {
+      font-size: 0.72rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
     }
 
     /* Section Cards */
@@ -155,18 +176,14 @@
       padding: 28px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.8);
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       color: var(--primary);
       margin-bottom: 20px;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
 
     /* Timeline */
@@ -199,9 +216,10 @@
     }
 
     .timeline-desc {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: #555;
       margin-top: 4px;
+      line-height: 1.5;
     }
 
     /* Reasons Cards */
@@ -214,14 +232,11 @@
     .reason-box {
       background: white;
       border-radius: 14px;
-      padding: 18px;
+      padding: 20px 16px;
       text-align: center;
-      cursor: pointer;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-height: 100px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       border: 1px solid #ffe1e7;
@@ -235,6 +250,7 @@
     .reason-box p {
       font-size: 0.95rem;
       color: var(--text);
+      line-height: 1.4;
     }
 
     /* Letter Section */
@@ -243,7 +259,7 @@
       border-radius: 16px;
       padding: 30px;
       border: 1px solid #f2e9dc;
-      box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+      box-shadow: inset 0 0 35px rgba(0,0,0,0.02);
       font-family: 'Caveat', cursive;
       font-size: 1.55rem;
       line-height: 1.6;
@@ -297,7 +313,6 @@
       transition: left 0.2s ease, top 0.2s ease;
     }
 
-    /* Footer Note */
     footer {
       text-align: center;
       font-size: 0.85rem;
@@ -315,73 +330,93 @@
   <div id="envelope-screen">
     <div class="envelope-box" onclick="openGift()">
       <div class="envelope-icon">💌</div>
-      <p class="envelope-hint">Tap to open your 4-Month surprise</p>
+      <p class="envelope-hint">Tap to open, Alifiya ✨</p>
     </div>
   </div>
 
-  <!-- Stage 2: Main Website -->
+  <!-- Stage 2: Main Content -->
   <main id="main-content">
     <header>
-      <h1>Happy 4 Months! 💕</h1>
-      <div class="counter-pill" id="counter">Ticking since day one...</div>
+      <h1>Happy 4 Months, Alifiya! 💕</h1>
+      <p style="color: #666; font-size: 0.95rem; margin-top: 6px;">Every single second since day one:</p>
+      
+      <!-- Live Real-Time Stopwatch -->
+      <div class="timer-container">
+        <div class="timer-box">
+          <div class="timer-number" id="t-days">137</div>
+          <div class="timer-label">Days</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-number" id="t-hours">00</div>
+          <div class="timer-label">Hours</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-number" id="t-mins">00</div>
+          <div class="timer-label">Minutes</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-number" id="t-secs">00</div>
+          <div class="timer-label">Seconds</div>
+        </div>
+      </div>
     </header>
 
     <!-- Timeline Journey -->
     <section class="section-card">
-      <h2 class="section-title">✨ Our First 4 Months</h2>
+      <h2 class="section-title">✨ Our First 4 Months Together</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">Month 1 • The Beginning</div>
-          <div class="timeline-desc">Where it all started. The butterflies, staying up way too late talking, and realizing you're someone special.</div>
+          <div class="timeline-date">Month 1 • Day 1 & Sparks</div>
+          <div class="timeline-desc">Where it all started. The butterflies, staying up talking for hours, and quickly realizing how special you are to me.</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">Month 2 • Favorite Memories</div>
-          <div class="timeline-desc">Our long laughs, comfortable silences, and all the little moments that quickly became my favorite part of any day.</div>
+          <div class="timeline-date">Month 2 • Our Little World</div>
+          <div class="timeline-desc">Sharing jokes, all the sweet conversations, and finding myself looking forward to hearing your voice every day.</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">Month 3 • Getting Closer</div>
-          <div class="timeline-desc">Understanding each other more, sharing silly things, and knowing I always have a safe space with you.</div>
+          <div class="timeline-date">Month 3 • Safe Space</div>
+          <div class="timeline-desc">Learning everything about each other, sharing comfort and smiles, and you becoming my absolute favorite part of every single day.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">Month 4 • Today & Beyond</div>
-          <div class="timeline-desc">4 full months together, and honestly, every single day just gets sweeter. Here's to forever more.</div>
+          <div class="timeline-desc">Officially 4 months (and 138 days of knowing you). Honestly, every day with you just gets sweeter and better.</div>
         </div>
       </div>
     </section>
 
     <!-- Reasons Grid -->
     <section class="section-card">
-      <h2 class="section-title">💌 Things I Adore About You</h2>
+      <h2 class="section-title">💌 Things I Adore About You, Alifiya</h2>
       <div class="reasons-grid">
         <div class="reason-box">
-          <p>Your smile that immediately brightens my mood ✨</p>
+          <p>Your smile that instantly melts away any stress I have ✨</p>
         </div>
         <div class="reason-box">
-          <p>The warmest hugs that make everything feel okay 🫂</p>
+          <p>The warmest hugs that make everything in the world feel completely okay 🫂</p>
         </div>
         <div class="reason-box">
-          <p>How cute you look when you get passionate about small things 🥺</p>
+          <p>How cute you get when you’re talking about things you love 🥺</p>
         </div>
         <div class="reason-box">
-          <p>Just simply being you—my absolute favorite person 💖</p>
+          <p>The calm and happiness you bring just by existing in my life 💖</p>
         </div>
       </div>
     </section>
 
     <!-- Digital Love Note -->
     <section class="section-card">
-      <h2 class="section-title">📝 A Little Letter For You</h2>
+      <h2 class="section-title">📝 A Letter For You</h2>
       <div class="letter-paper">
-        Dearest,<br><br>
-        Can you believe it’s already been 4 months? Time flies so fast when I’m with you, yet every single memory we’ve made feels so vivid.<br><br>
-        Thank you for your warmth, your laughs, and the comfort you bring into my life every day. You make everything lighter and so much more fun.<br><br>
-        I love you more than words can say. Happy 4-month anniversary! ❤️
+        Dearest Alifiya,<br><br>
+        It’s wild how 138 days feel like both a lifetime and an instant. Every single moment since the day we met has felt brighter just because you’re in it.<br><br>
+        Thank you for being my peace, my biggest smile, and the one person who can always turn a regular day into something special. Getting to love you over these past 4 months has been the easiest, best thing in the world.<br><br>
+        Happy 4 months, my favorite person. Here's to forever more. ❤️
       </div>
     </section>
 
     <!-- Playful Interactive Question -->
     <section class="section-card playful-box" id="question-box">
-      <h2 style="font-size: 1.3rem; color: var(--text);">Will you stay by my side for Month 5 and beyond? 🥺</h2>
+      <h2 style="font-size: 1.3rem; color: var(--text);">Will you be my date for Month 5 and beyond, Alifiya? 🥺</h2>
       <div class="btn-container">
         <button class="btn-yes" onclick="celebrate()">YES! Always ❤️</button>
         <button class="btn-no" id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()">No</button>
@@ -389,7 +424,7 @@
     </section>
 
     <footer>
-      Crafted with love just for you ✨
+      Made with love, exclusively for Alifiya ✨
     </footer>
   </main>
 
@@ -400,8 +435,8 @@
       const content = document.getElementById('main-content');
       
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 90,
+        spread: 75,
         origin: { y: 0.6 }
       });
 
@@ -431,11 +466,11 @@
     // 3. Celebrate "Yes" Click
     function celebrate() {
       confetti({
-        particleCount: 150,
-        spread: 100,
+        particleCount: 160,
+        spread: 110,
         origin: { y: 0.6 }
       });
-      alert("I knew it! Best answer ever. Love you! 🥰");
+      alert("I knew it! Best answer ever, Alifiya. Love you! 🥰");
     }
 
     // 4. Background Floating Hearts Generator
@@ -448,7 +483,7 @@
       heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
-      heart.style.fontSize = (Math.random() * 15 + 14) + 'px';
+      heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
       
       heartContainer.appendChild(heart);
       
@@ -458,17 +493,29 @@
     }
     setInterval(createHeart, 450);
 
-    // 5. Days Counter (Set your exact start date below: YYYY-MM-DD)
-    const startDate = new Date();
-    startDate.setMonth(startDate.getMonth() - 4); // Defaults to roughly 4 months ago
-    
-    function updateCounter() {
+    // 5. EXACT LIVE TIMER (Ticking live seconds, hours, days)
+    // Locked to hit 138 days tomorrow:
+    const targetStartDate = new Date();
+    targetStartDate.setDate(targetStartDate.getDate() - 137); 
+    targetStartDate.setHours(0, 0, 0, 0);
+
+    function updateTimer() {
       const now = new Date();
-      const diffTime = Math.abs(now - startDate);
-      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      document.getElementById('counter').innerText = `~${diffDays} Days of Us & Counting ✨`;
+      const diff = now - targetStartDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('t-days').innerText = days;
+      document.getElementById('t-hours').innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById('t-mins').innerText = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById('t-secs').innerText = seconds < 10 ? '0' + seconds : seconds;
     }
-    updateCounter();
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
   </script>
 </body>
 </html>
